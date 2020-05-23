@@ -1,0 +1,30 @@
+<div class="login-box">
+  <div class="login-logo">
+    <!-- <a><b>Admin</b></a> -->
+    <!-- <img src="../../../assets/logo_yobel.png"> -->
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Inicia sesión para comenzar</p>
+
+    <form >
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" placeholder="Usuario" [(ngModel)]="usuario.nom_usu" [ngModelOptions]="{standalone:true}"  required>
+        <span class="fa fa-user-circle form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="usuario.pass_usu" [ngModelOptions]="{standalone:true}" required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <!-- /.col -->
+        <div class="col-xs-12">
+          <button type="button"  class="btn btn-primary btn-block btn-flat" (click)="onLogin()">Iniciar Sesión</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>

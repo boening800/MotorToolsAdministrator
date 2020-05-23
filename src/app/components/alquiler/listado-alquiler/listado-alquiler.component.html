@@ -1,0 +1,22 @@
+<table class="table table-hover table-striped">
+    <thead>
+        <tr >
+          <th scope="col">Cliente</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Fecha inicio</th>
+          <th scope="col">Fecha fin</th>
+          <th scope="col">Costo Alquiler</th>
+          <th scope="col">Tipo de pago</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor = "let data of data; let i = index" >
+          <th scope="row">{{data.nom_cli}} {{data.apepat_cli}}</th>
+          <td>{{data.marca_vehi}}</td>
+          <td>{{data.fec_ini_alqu}}</td>
+          <td>{{data.fec_fin_alqu}}</td>
+          <td>S/. {{data.pago_alqu}}</td>
+          <td>{{data.nombre_tipopago}}</td>
+        </tr>
+      </tbody>
+</table>
