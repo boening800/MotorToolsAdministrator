@@ -1,19 +1,7 @@
-<app-header></app-header>
-<app-menu></app-menu>
 
-  <div class="content-wrapper">
-
-    <section class="content-header">
-      <h1>
-        
-      </h1>
-
-    </section>
-    
-    <section class="content">
-      <!-- <div class="row">
+      <div class="row">
         <div class="col-lg-3 col-xs-6" *ngIf='opt_reserva'>
-
+          <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
               <h3>RESERVAS</h3>
@@ -23,11 +11,11 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a routerLink='registrarreseva' class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a routerLink='/home/registrarreseva' class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <div class="col-lg-3 col-xs-6" *ngIf='opt_reserva'>
-    
+          <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
               <h3>CLIENTES</h3>
@@ -37,12 +25,12 @@
             <div class="icon">
               <i class="ion ion-person"></i>
             </div>
-            <a routerLink='registrocliente' class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+            <a routerLink='/home/registrocliente' class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-      
+        <!-- ./col -->
         <div class="col-lg-3 col-xs-6" *ngIf='opt_alquiler'>
-  
+          <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
               <h3>ALQUILER</h3>
@@ -55,9 +43,9 @@
             <a routerLink='/home' class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
-     
+        <!-- ./col -->
         <div class="col-lg-3 col-xs-6" *ngIf='opt_devolucion'>
-  
+          <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
               <h3>DEVOLUCIÓN</h3>
@@ -70,9 +58,9 @@
             <a href="#" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
- 
+        <!-- ./col -->
         <div class="col-lg-3 col-xs-6" *ngIf='opt_mantenimiento'>
-      
+          <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
               <h3>MANTENIMIENTO</h3>
@@ -85,10 +73,5 @@
             <a href="#" class="small-box-footer">Ingresar<i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
- 
-      </div>     -->
-      <router-outlet></router-outlet>
-    </section>
-
-  </div>
-  <app-footer></app-footer>
+        <!-- ./col -->
+      </div> 

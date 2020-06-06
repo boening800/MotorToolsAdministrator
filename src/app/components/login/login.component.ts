@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     return this.authService.loginUsuario(this.usuario.nom_usu,this.usuario.pass_usu).subscribe(data=>{
       var decode = data;
       this.authService.setUsuario(decode);
-      document.location.href = '/home';
+      document.location.href = '/home/dashboard';
       console.log(data);
       console.log(jwt_decode(JSON.parse(localStorage.getItem('data_current'))['token']));
     },

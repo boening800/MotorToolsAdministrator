@@ -8,6 +8,7 @@ import {RegistroReservaComponent} from '../app/components/reserva/registro-reser
 import {RegistroClienteComponent} from '../app/components/cliente/registro-cliente/registro-cliente.component';
 import {ListadoClienteComponent} from '../app/components/cliente/listado-cliente/listado-cliente.component';
 import {ListadoReservaComponent} from '../app/components/reserva/listado-reserva/listado-reserva.component';
+import {DashboardMenuComponent} from '../app/components/dashboard/dashboard-menu/dashboard-menu.component';
 const routes: Routes = [
   { path:'login', component:LoginComponent},
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
       {path:'registrocliente', component:RegistroClienteComponent},
       {path:'listacliente', component:ListadoClienteComponent},
       {path:'listareserva', component:ListadoReservaComponent},
+      {path:'dashboard', component:DashboardMenuComponent},
     ]
   }
 ];

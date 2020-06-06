@@ -18,6 +18,7 @@ import { RegistroReservaComponent } from './components/reserva/registro-reserva/
 import { RegistroClienteComponent } from './components/cliente/registro-cliente/registro-cliente.component';
 import { ListadoClienteComponent } from './components/cliente/listado-cliente/listado-cliente.component';
 import { ListadoReservaComponent } from './components/reserva/listado-reserva/listado-reserva.component';
+import { DashboardMenuComponent } from './components/dashboard/dashboard-menu/dashboard-menu.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ListadoReservaComponent } from './components/reserva/listado-reserva/li
     RegistroReservaComponent,
     RegistroClienteComponent,
     ListadoClienteComponent,
-    ListadoReservaComponent
+    ListadoReservaComponent,
+    DashboardMenuComponent
   ],
   imports: [
     BrowserModule,

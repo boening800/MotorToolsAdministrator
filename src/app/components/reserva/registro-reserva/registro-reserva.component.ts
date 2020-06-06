@@ -23,6 +23,9 @@ export class RegistroReservaComponent implements OnInit {
   public msg_create_alqu:any;
   public precio_vehi:any;
   public precio_adicional:number;
+  public date_desde_min:any;
+  public date_hasta_min:any;
+  public date_hasta_max:any;
   constructor(public DataApiService:DataApiService) { }
 
   public model_registrar_alquiler:model_registrar_alquiler={
@@ -54,8 +57,27 @@ export class RegistroReservaComponent implements OnInit {
     this.pnl_tipopago=false;
     this.pnl_precio=false;
     this.PostListarAutos();
+    // $('#desde').val(new Date());
+    this.date_desde_min=new Date();
   }
+  fechainicio(){
+    var fechaInicio = new Date(this.vehiculo_libres.fec_ini_alqu);
 
+    //  this.vehiculo_libres.fec_ini_alqu =this.date_desde_min;
+ 
+     var fec = new Date(fechaInicio);
+     fec.setDate(fec.getDate() + 2) ;
+     this.date_hasta_min =fec.getFullYear()+'-'+(fec.getMonth()+1)+'-'+fec.getDate();
+     console.log(this.date_hasta_min);
+
+     fec.setDate(fec.getDate() + 6) ;
+     this.date_hasta_max =fec.getFullYear()+'-'+(fec.getMonth()+1)+'-'+fec.getDate();
+     console.log(this.date_hasta_max);
+  }
+  // fechafin(){
+
+
+  // }
   PostValidarClientexDNI(){
     this.DataApiService.PostValidarClientexDNI(this.dni_cli).subscribe(
       data=>{
@@ -104,7 +126,7 @@ export class RegistroReservaComponent implements OnInit {
   Adicionales(precio_adicional){
     // precio_adicional = 0;
      this.precio_adicional = precio_adicional;
-    // this.pago_total = this.pago_total+((this.precio_adicional)*(this.num_dias));
+     this.pago_total = this.pago_total+((this.precio_adicional)*(this.num_dias));
     
   }
 
