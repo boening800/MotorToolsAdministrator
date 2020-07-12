@@ -19,6 +19,7 @@ import { RegistroClienteComponent } from './components/cliente/registro-cliente/
 import { ListadoClienteComponent } from './components/cliente/listado-cliente/listado-cliente.component';
 import { ListadoReservaComponent } from './components/reserva/listado-reserva/listado-reserva.component';
 import { DashboardMenuComponent } from './components/dashboard/dashboard-menu/dashboard-menu.component';
+import { PagoComponent } from './components/pago/pago.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DashboardMenuComponent } from './components/dashboard/dashboard-menu/da
     RegistroClienteComponent,
     ListadoClienteComponent,
     ListadoReservaComponent,
-    DashboardMenuComponent
+    DashboardMenuComponent,
+    PagoComponent
   ],
   imports: [
     BrowserModule,

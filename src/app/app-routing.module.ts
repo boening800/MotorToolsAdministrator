@@ -9,6 +9,7 @@ import {RegistroClienteComponent} from '../app/components/cliente/registro-clien
 import {ListadoClienteComponent} from '../app/components/cliente/listado-cliente/listado-cliente.component';
 import {ListadoReservaComponent} from '../app/components/reserva/listado-reserva/listado-reserva.component';
 import {DashboardMenuComponent} from '../app/components/dashboard/dashboard-menu/dashboard-menu.component';
+import {PagoComponent} from '../app/components/pago/pago.component';
 const routes: Routes = [
   { path:'login', component:LoginComponent},
   { path: '',   redirectTo: '/login', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
       {path:'listacliente', component:ListadoClienteComponent},
       {path:'listareserva', component:ListadoReservaComponent},
       {path:'dashboard', component:DashboardMenuComponent},
+      {path:'registrarpago',component:PagoComponent}
     ]
   }
 ];

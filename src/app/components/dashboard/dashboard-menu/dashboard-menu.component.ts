@@ -13,6 +13,7 @@ export class DashboardMenuComponent implements OnInit {
   public opt_alquiler: boolean;
   public opt_devolucion: boolean;
   public opt_mantenimiento: boolean;
+  public opt_cajero: boolean;
   ngOnInit(){
     
     this.id_rol= jwt_decode(JSON.parse(localStorage.getItem('data_current'))['token'])['id_rol'];
@@ -24,9 +25,11 @@ export class DashboardMenuComponent implements OnInit {
     }
     if(this.id_rol == '1001'){
       this.opt_reserva = true;
+      // this.opt_cajero = false;
     }
     if(this.id_rol == '1002'){
-      this.opt_devolucion = true;
+      // this.opt_devolucion = true;
+      this.opt_cajero = true;
     }
     if(this.id_rol == '1003'){
       this.opt_mantenimiento = true;

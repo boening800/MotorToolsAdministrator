@@ -1,16 +1,282 @@
 <div class="row">
-    <!-- left column -->
-    <div class="col-md-12">
-        <!-- general form elements -->
+    <div class="col-md-6">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Alquiler</h3>
+                <h3 class="box-title">Buscar reserva</h3>
             </div>
             <form role="form">
                 <div class="box-body table-responsive">
-                    <app-listado-alquiler></app-listado-alquiler>
+                    <!-- <app-listado-alquiler></app-listado-alquiler> -->
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <select class="form-control" >
+                                <option value="1">DNI</option>
+                                <option value="2">Pasaporte</option>
+                            </select> 
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" [(ngModel)]="dni_cli" [ngModelOptions]="{standalone: true}">  
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-primary" (click)="BuscarReserva()">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Cliente de la reserva</h3>
+            </div>
+            <form role="form">
+                <div class="box-body table-responsive">
+
+                    <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Num reserva</th>
+                            <th scope="col">Nombre Apellidos</th>
+                            <th scope="col">Fecha Inicio</th>
+                            <th scope="col">Vehículo</th>
+                            <th scope="col">Estado</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">{{model_alquiler.id_alqu}}</th>
+                            <td>{{model_cliente.nom_cli}} {{model_cliente.apepat_cli}}</td>
+                            <td>{{model_alquiler.fec_ini_alqu}}</td>
+                            <td>{{model_vehiculo.marca_vehi}} {{model_vehiculo.modelo_vehi}}</td>
+                            <td *ngIf="model_alquiler.estado_alqu=='0'" style="color:red; font-weight:  bolder;">Sin pagar</td>
+                            <td *ngIf="model_alquiler.estado_alqu=='1'" style="color:green; font-weight:  bolder;">Pagado</td>
+                            <td *ngIf="model_alquiler.estado_alqu=='3'" style="color:rgb(121, 121, 0); font-weight:  bolder;">Alquilado</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                      <div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label>DNI</label>
+                                <input type="text" disabled class="form-control" [(ngModel)]="model_cliente.dni_cli" [ngModelOptions]="{standalone: true}">  
+                            </div>
+                            <div class="col-md-6">
+                                <label>Fecha de inicio</label>
+                                <input type="text" disabled class="form-control" [(ngModel)]="model_alquiler.fec_ini_alqu" [ngModelOptions]="{standalone: true}">  
+                            </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <label>Num reserva</label>
+                                <input type="text" disabled class="form-control" [(ngModel)]="model_alquiler.id_alqu" [ngModelOptions]="{standalone: true}">  
+                            </div>
+                            <div class="col-md-6">
+                                <label>Fecha final</label>
+                                <input type="text" disabled class="form-control" [(ngModel)]="model_alquiler.fec_fin_alqu" [ngModelOptions]="{standalone: true}">  
+                            </div>
+                        </div>
+                      </div>
+                </div>
+            </form>
+        </div>
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Vehículo de la reserva</h3>
+            </div>
+            <form role="form">
+                <div class="box-body table-responsive">
+                    <div class="form-group" style="font-size: 18px;">vehículo</div>
+                    <div class="form-group">
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">Marca</th>
+                                <th scope="col">Modelo</th>
+                                <th scope="col">Nro placa</th>
+                                <th scope="col">Numero ubicacion Garaje</th>
+                                <th scope="col">Kilometraje</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of data_vehiculo">
+                                <th scope="row">{{item.marca_vehi}}</th>
+                                <td>{{item.modelo_vehi}}</td>
+                                <td>{{item.placa_vehi}}</td>
+                                <td>{{item.num_garage_vehi}}</td>
+                                <td>{{item.num_kilom_vehi}} km</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-group" style="font-size: 18px;">Especificación técnica del vehículo reservado</div>
+                    <div class="form-group">
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">Detalle</th>
+                                <th scope="col">Nivel</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <th scope="row">Tanque</th>
+                                <td>Maximo</td>
+                              </tr>
+                              <tr>
+                                <th scope="row">Aceite</th>
+                                <td>Medio</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">Adicionales de la reserva</h3>
+            </div>
+            <form role="form">
+                <div class="box-body table-responsive">
+                    <div class="form-group" style="font-size: 18px;">Especificación técnica del vehículo reservado</div>
+                    <div class="form-group">
+                        <table class="table table-striped ">
+                            <thead>
+                              <tr>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of colection_detalle_adicionales">
+                                <th scope="row">{{item.nom_adic}}</th>
+                              </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div *ngIf="panel_conduc1==true">
+                      <div class="form-group" style="font-size: 18px;">Conductor de la empresa solicitada Adicional por Cliente</div>
+                      <div class="form-group">
+                          <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Codigo</th>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Apellido</th>
+                                  <th scope="col">N° Licencia</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row">7553</th>
+                                  <th scope="row">Miguel</th>
+                                  <th scope="row">Carrasco Perez</th>
+                                  <th scope="row">Q-55566334</th>
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                    </div>
+                    <div *ngIf="panel_conduc2==true">
+                      <div class="form-group" style="font-size: 18px;">Conductor inscrito en la reserva del Cliente</div>
+                      <div class="form-group">
+                          <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Codigo</th>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Apellido</th>
+                                  <th scope="col">N° Licencia</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of data_conductor">
+                                  <th scope="row">{{item.id_conduc}}</th>
+                                  <th scope="row">{{item.nombre_conduc}}</th>
+                                  <th scope="row">{{item.apellidos_conduc}}</th>
+                                  <th scope="row">{{item.licencia_conduc}}</th>
+                                </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <div class="box box-primary">
+          <div class="box-header with-border">
+              <h3 class="box-title">Código del adicional Pedido</h3>
+          </div>
+          <form role="form">
+              <div class="box-body table-responsive">
+                  <div class="form-group">
+                      <div class="col-md-4" *ngIf="adic1==true">
+                        <label>GPS</label>
+                          <input type="text" class="form-control" [(ngModel)]="gps" [ngModelOptions]="{standalone: true}" >  
+                      </div>
+                      <div class="col-md-4" *ngIf="adic2==true">
+                        <label>Silla para niños</label>
+                        <input type="text" class="form-control" [(ngModel)]="sill_ni" [ngModelOptions]="{standalone: true}" >  
+                      </div>
+                  </div>
+              </div>
+          </form>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Cancelar</button>
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary" (click)="RegistrarAlquiler()">Registrar Alquiler</button>
+          </div>            
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="AlertarRegistroAlquilerIncorrecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mensaje</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          El cliente aún no ha pagado el servicio.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" routerLink='/home'>Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="AlertarRegistroAlquilerCorrecto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Mensaje</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          Registro correcto
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" routerLink='/home'>Aceptar</button>
+      </div>
+    </div>
+  </div>
 </div>

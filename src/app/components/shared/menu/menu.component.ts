@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
   public opt_alquiler: boolean;
   public opt_devolucion: boolean;
   public opt_mantenimiento: boolean;
+  public opt_cajero: boolean;
   ngOnInit() {
 
     // console.log(jwt_decode(JSON.parse(localStorage.getItem('data_current'))['token'])['id_rol']);
@@ -41,6 +42,9 @@ export class MenuComponent implements OnInit {
     }
     if(this.id_rol == '1004'){
       this.opt_alquiler = true;
+    }
+    if(this.id_rol == '1002'){
+      this.opt_cajero = true;
     }
   }
 

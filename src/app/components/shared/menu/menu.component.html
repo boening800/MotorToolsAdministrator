@@ -52,8 +52,21 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a routerLink='/home'>Registrar Alquiler</a></li>
-            <li><a routerLink='listalquiler'>Lista de alquileres</a></li>
+            <li><a routerLink='listalquiler'>Registrar Alquiler</a></li>
+            <!-- <li><a routerLink='listalquiler'>Lista de alquileres</a></li> -->
+            <!-- <li><a href="#">Link in level 2</a></li> -->
+          </ul>
+        </li>
+
+        <li class="treeview" *ngIf='opt_cajero'>
+          <a href="#"><i class="fa fa-link"></i> <span>Pagos</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a routerLink='registrarpago'>Registrar Pago</a></li>
+            <!-- <li><a routerLink='listalquiler'>Lista de alquileres</a></li> -->
             <!-- <li><a href="#">Link in level 2</a></li> -->
           </ul>
         </li>

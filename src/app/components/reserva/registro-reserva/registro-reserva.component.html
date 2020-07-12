@@ -108,67 +108,65 @@
             </form>
         </div>
 
-
-        <div class="box box-primary" *ngIf='pnl_fec_res'>
+        <div class="col-md-6">
+          <div class="box box-primary" *ngIf='pnl_fec_res'>
             <div class="box-header with-border">
                 <h3 class="box-title">Adicionales</h3>
             </div>
             <form role="form">
-                <div class="box-body table-responsive">
-                    <div class="col-md-2">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="6" (click)="Adicionales(6)"  [(ngModel)]="precio_adicional" >
-                        <label class="form-check-label" for="exampleRadios1">
-                          GPS
-                        </label>
-                        <!-- 6 -->
-                    </div>
-                    <div class="col-md-2">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="50" (click)="Adicionales(50)"  [(ngModel)]="precio_adicional">
-                        <label class="form-check-label" for="exampleRadios2">
-                          Chofer
-                        </label>
-                        <!-- 50 -->
-                    </div>
-                    <div class="col-md-2">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="6" (click)="Adicionales(6)"   [(ngModel)]="precio_adicional">
-                        <label class="form-check-label" for="exampleRadios3">
-                          Seg. Accidentes
-                        </label>
-                        <!-- 6 -->
-                    </div>
-                    <div class="col-md-2">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="10" (click)="Adicionales(10)"  [(ngModel)]="precio_adicional" >
-                        <label class="form-check-label" for="exampleRadios4">
-                          Daños por colisión
-                        </label>
-                        <!-- 10 -->
-                    </div>
-                </div>
-                
+                <div class="box-body table-responsive" >
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Adicional</th>
+                        <th scope="col">Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor = "let item of colection_adicionales; let i = index">
+                        <input class="form-check-input" type="checkbox"  [(ngModel)]="item.value_check" (click)="Adicionales(item.precio)"  [ngModelOptions]="{standalone: true}">
+                        <td>{{item.nom_adic}}</td>
+                        <td>S/. {{item.precio}} x día</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>          
             </form>
+          </div> 
         </div>
-
-        <!-- <div class="box box-primary" *ngIf='pnl_tipopago'>
+        <div class="col-md-6">
+          <div class="box box-primary" *ngIf='pnl_fec_res'>
             <div class="box-header with-border">
-                <h3 class="box-title">Información de Pago</h3>
+                <h3 class="box-title">Conductor Reserva</h3>
             </div>
             <form role="form">
-                <div class="box-body table-responsive">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="1001" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                  Tarjeta
-                                </label>
-                            </div>
-                        </div>
-
+                <div class="box-body table-responsive" >
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Nombre</label>
+                      <input type="text" id="nom_conduc" [(ngModel)]="model_conductor.nombre_conduc" [ngModelOptions]="{standalone: true}" class="form-control" >  
                     </div>
-                </div>
+                    <div class="form-group">
+                      <label>Apellidos</label>
+                      <input type="text" id="ape_conduc" [(ngModel)]="model_conductor.apellidos_conduc" [ngModelOptions]="{standalone: true}" class="form-control" >  
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>N° Licencia</label>
+                      <input type="text" id="lic_conduc" [(ngModel)]="model_conductor.licencia_conduc" [ngModelOptions]="{standalone: true}" class="form-control" >  
+                    </div>
+                    <div class="form-group">
+                      <label>Fecha Vencimiento</label>
+                      <input type="date" id="fec_conduc" [(ngModel)]="model_conductor.fec_vencimiento_lic" [ngModelOptions]="{standalone: true}" class="form-control" >  
+                    </div>
+                  </div>
+                </div>          
             </form>
-        </div> -->
-        
+          </div>
+        </div>
+       
     </div>
 </div>
 
